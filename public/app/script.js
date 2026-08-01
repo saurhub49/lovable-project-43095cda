@@ -48,7 +48,7 @@ const DEFAULTS = {
       ["Dribbling", 95, "+4"],
       ["Tight Possession", 96, "+4"],
       ["Low Pass", 92, "+4"],
-      ["Lofted Pass", 87, ""],
+      ["Lofted Pass", 87, "+1"],
       ["Finishing", 85, ""],
       ["Heading", 66, ""],
       ["Curl", 71, ""],
@@ -201,15 +201,22 @@ function renderStats() {
 
     rows.forEach((row) => {
       const node = el("div", "srow");
+      const statClass = valueClass(row[1]);
+      const modClass = row[2] ? `srow__mod ${statClass}` : "srow__mod srow__mod--empty";
       node.innerHTML = `
         <span class="srow__name">${row[0]}</span>
-        <span class="srow__mod ${row[2] ? "" : "srow__mod--empty"}">${row[2] || "+0"}</span>
-        <input class="edit srow__val ${valueClass(row[1])}" value="${row[1]}" inputmode="numeric" />`;
+        <span class="${modClass}">${row[2] || "+0"}</span>
+        <input class="edit srow__val ${statClass}" value="${row[1]}" inputmode="numeric" />`;
       const input = node.querySelector(".srow__val");
+      const modifier = node.querySelector(".srow__mod");
       input.addEventListener("input", (e) => {
         const v = Math.max(0, Math.min(99, Number(e.target.value) || 0));
         row[1] = v;
-        input.className = `edit srow__val ${valueClass(v)}`;
+        const nextClass = valueClass(v);
+        input.className = `edit srow__val ${nextClass}`;
+        if (modifier) {
+          modifier.className = row[2] ? `srow__mod ${nextClass}` : "srow__mod srow__mod--empty";
+        }
       });
       list.appendChild(node);
     });
@@ -330,7 +337,7 @@ async function exportPNG() {
   let shot;
   try {
     shot = await window.html2canvas(target, {
-      backgroundColor: "#0E1017",
+      backgroundColor: null,
       scale: 2,
       useCORS: true,
       onclone: (doc) => {
@@ -386,12 +393,25 @@ async function exportPNG() {
   const square = document.createElement("canvas");
   square.width = square.height = side;
   const ctx = square.getContext("2d");
-  const grd = ctx.createLinearGradient(0, 0, side, side);
-  grd.addColorStop(0, "#0E1017");
-  grd.addColorStop(0.5, "#141127");
-  grd.addColorStop(1, "#0E1017");
-  ctx.fillStyle = grd;
+
+  const bg = new Image();
+  bg.src = "assets/images/bg-banner.png";
+  await new Promise((resolve, reject) => {
+    bg.onload = resolve;
+    bg.onerror = reject;
+  });
+
+  ctx.save();
+  ctx.globalCompositeOperation = "source-over";
+  ctx.drawImage(bg, 0, 0, side, side);
+  const glow = ctx.createRadialGradient(side * 0.25, side * 0.18, 0, side * 0.25, side * 0.18, side * 0.7);
+  glow.addColorStop(0, "rgba(139, 61, 255, 0.25)");
+  glow.addColorStop(0.55, "rgba(0, 232, 255, 0.12)");
+  glow.addColorStop(1, "rgba(0, 0, 0, 0)");
+  ctx.fillStyle = glow;
   ctx.fillRect(0, 0, side, side);
+  ctx.restore();
+
   ctx.drawImage(shot, (side - shot.width) / 2, (side - shot.height) / 2);
 
   const a = document.createElement("a");
