@@ -1003,7 +1003,7 @@ kbd {
 /* ---------- 16. Export mode (html2canvas) ---------- */
 .exporting .glass {
   background: transparent !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border: none !important;
   backdrop-filter: none;
   box-shadow: none;
   transform: none !important;
