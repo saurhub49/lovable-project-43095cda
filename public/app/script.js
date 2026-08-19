@@ -8,88 +8,105 @@ const PROG_MAX = 20; // max points per progression row
 
 const DEFAULTS = {
   meta: {
-    playerName: "Jude Bellingham",
-    ovr: "107",
-    position: "AMF",
-    cardType: "Big Time England",
-    club: "Real Madrid",
-    playstyle: "Hole Player",
+    playerName: "Denzel Dumfries",
+    ovr: "104",
+    position: "RB",
+    cardType: "Summer Transfer 17 Aug '26",
+    club: "Madrid Chamartin B",
+    playstyle: "Attacking Full-back | Basic",
   },
-  // Header meta pills — value can be a number or a string (WF / Injury are strings)
+
+  // Header meta pills
   info: [
-    { key: "nationality", label: "Nationality", icon: "fa-flag", value: "England" },
-    { key: "height", label: "Height", icon: "fa-ruler-vertical", value: "186 cm" },
-    { key: "weight", label: "Weight", icon: "fa-weight-hanging", value: "75 kg" },
-    { key: "age", label: "Age", icon: "fa-cake-candles", value: "23 years" },
+    { key: "nationality", label: "Nationality", icon: "fa-flag", value: "Netherlands" },
+    { key: "height", label: "Height", icon: "fa-ruler-vertical", value: "188 cm" },
+    { key: "weight", label: "Weight", icon: "fa-weight-hanging", value: "80 kg" },
+    { key: "age", label: "Age", icon: "fa-cake-candles", value: "30 years" },
     { key: "foot", label: "Strong Foot", icon: "fa-shoe-prints", value: "Right" },
     { key: "wfAcc", label: "WF Accuracy", icon: "fa-crosshairs", value: "High" },
-    { key: "wfUse", label: "WF Usage", icon: "fa-repeat", value: "Medium" },
-    { key: "injury", label: "Injury Resistance", icon: "fa-shield-heart", value: "Excellent" },
-    { key: "levels", label: "Levels", icon: "fa-layer-group", value: "32" },
-    { key: "form", label: "Form", icon: "fa-chart-line", value: "Standard" },
-    { key: "last5", label: "Last 5 Weeks Form", icon: "fa-calendar-week", value: "C-C-B-A-C" },
+    { key: "wfUse", label: "WF Usage", icon: "fa-repeat", value: "High" },
   ],
+
   progression: [
-    { key: "shooting", name: "Shooting", icon: "fa-crosshairs", value: 4 },
-    { key: "passing", name: "Passing", icon: "fa-futbol", value: 8 },
-    { key: "dribbling", name: "Dribbling", icon: "fa-shoe-prints", value: 12 },
-    { key: "dexterity", name: "Dexterity", icon: "fa-right-left", value: 8 },
-    { key: "lower", name: "Lower Body Strength", icon: "fa-person-running", value: 7 },
-    { key: "aerial", name: "Aerial Strength", icon: "fa-angles-up", value: 0 },
-    { key: "defending", name: "Defending", icon: "fa-shield-halved", value: 0 },
+    { key: "shooting", name: "Shooting", icon: "fa-crosshairs", value: 0 },
+    { key: "passing", name: "Passing", icon: "fa-futbol", value: 4 },
+    { key: "dribbling", name: "Dribbling", icon: "fa-shoe-prints", value: 4 },
+    { key: "dexterity", name: "Dexterity", icon: "fa-right-left", value: 10 },
+    { key: "lower", name: "Lower Body Strength", icon: "fa-person-running", value: 8 },
+    { key: "aerial", name: "Aerial Strength", icon: "fa-angles-up", value: 6 },
+    { key: "defending", name: "Defending", icon: "fa-shield-halved", value: 10 },
     { key: "gk1", name: "GK 1", icon: "fa-hand", value: 0 },
     { key: "gk2", name: "GK 2", icon: "fa-hand-back-fist", value: 0 },
     { key: "gk3", name: "GK 3", icon: "fa-mitten", value: 0 },
   ],
+
   stats: {
     ATTACKING: [
-      ["Offensive Awareness", 89, ""],
-      ["Ball Control", 95, "+4"],
-      ["Dribbling", 95, "+4"],
-      ["Tight Possession", 96, "+4"],
-      ["Low Pass", 92, "+4"],
-      ["Lofted Pass", 87, "+1"],
-      ["Finishing", 85, ""],
-      ["Heading", 66, ""],
-      ["Curl", 71, ""],
+      ["Offensive Awareness", 82, ""],
+      ["Ball Control", 79, ""],
+      ["Dribbling", 82, ""],
+      ["Tight Possession", 77, ""],
+      ["Low Pass", 85, ""],
+      ["Lofted Pass", 87, "+4"],
+      ["Finishing", 70, ""],
+      ["Heading", 83, ""],
+      ["Place Kicking", 64, ""],
+      ["Curl", 81, "+4"],
     ],
+
     DEFENDING: [
-      ["Defensive Awareness", 75, ""],
-      ["Tackling", 73, ""],
-      ["Aggression", 80, "+3"],
-      ["Defensive Engagement", 80, ""],
+      ["Defensive Awareness", 83, ""],
+      ["Tackling", 87, ""],
+      ["Aggression", 90, ""],
+      ["Defensive Engagement", 81, ""],
       ["GK Awareness", 41, ""],
       ["GK Catching", 41, ""],
       ["GK Parrying", 41, ""],
       ["GK Reflexes", 41, ""],
       ["GK Reach", 41, ""],
     ],
+
     PHYSICAL: [
-      ["Speed", 92, ""],
-      ["Acceleration", 90, "+3"],
-      ["Kicking Power", 91, ""],
-      ["Jumping", 71, ""],
-      ["Physical Contact", 84, "+3"],
-      ["Balance", 85, ""],
-      ["Stamina", 94, "+3"],
+      ["Speed", 93, "+4"],
+      ["Acceleration", 90, ""],
+      ["Kicking Power", 87, ""],
+      ["Jumping", 88, "+1"],
+      ["Physical Contact", 92, "+1"],
+      ["Balance", 80, "+1"],
+      ["Stamina", 95, "+5"],
     ],
   },
-  progPoints: { used: "39", max: "200" },
+
+  progPoints: {
+    used: "64",
+    max: "64",
+  },
+
   manager: 89,
-  boosters: { b1: "Technique", b1b: "+4", b2: "Hard Worker", b2b: "+3" },
+
+  boosters: {
+    b1: "Crossing",
+    b1b: "+4",
+    b2: "Physicality",
+    b2b: "+1",
+  },
+
+  // First two are highlighted specially in the UI
+  inbuiltSpecial: ["Edged Crossing", "Shadow Hunt"],
+
   inbuilt: [
-    "Magnetic Feet",
-    "Attacking Surge",
-    "Double Touch",
-    "Long-Range Curler",
-    "Long Range Shooting",
-    "First-time Shot",
+    "Heading",
     "One-touch Pass",
     "Through Passing",
-    "Outside Curler",
+    "Pinpoint Crossing",
+    "Long Throw",
+    "Man Marking",
+    "Aerial Superiority",
     "Fighting Spirit",
   ],
-  additional: ["Sole Control", "Marseille Turn", "Flip Flap", "Dipping Shot", "Heel Trick"],
+
+  additional: ["Interception", "Sliding Tackle", "Blocker", "Track Back", "Weighted Pass"],
+
   cardImage: "assets/images/player-card.png",
 };
 
@@ -169,9 +186,7 @@ function renderProgression() {
     slider.addEventListener("input", (e) => apply(e.target.value));
     node
       .querySelectorAll(".step")
-      .forEach((b) =>
-        b.addEventListener("click", () => apply(row.value + Number(b.dataset.step)))
-      );
+      .forEach((b) => b.addEventListener("click", () => apply(row.value + Number(b.dataset.step))));
 
     wrap.appendChild(node);
     apply(row.value);
@@ -179,7 +194,10 @@ function renderProgression() {
 }
 /* Progression points pill — fully manual, independent of the rows below. */
 function renderProgPoints() {
-  [["progUsed", "used"], ["progMax", "max"]].forEach(([id, key]) => {
+  [
+    ["progUsed", "used"],
+    ["progMax", "max"],
+  ].forEach(([id, key]) => {
     const node = document.getElementById(id);
     if (!node) return;
     node.value = state.progPoints[key];
@@ -234,17 +252,23 @@ function renderStats() {
 
 /* ---------- 6. Skills ---------- */
 function renderSkills() {
-  const inb = $("#inbuiltSkills");
-  inb.innerHTML = "";
-  state.inbuilt.forEach((name, i) => {
-    // First two inbuilt skills get the special animated highlight
-    const node = el("div", "skill" + (i < 2 ? " skill--special" : ""));
-    node.innerHTML = `<i class="fa-solid ${i < 2 ? "fa-crown" : "fa-bolt-lightning"}"></i>
-      <input class="edit" value="${name}" />`;
-    node
-      .querySelector("input")
-      .addEventListener("input", (e) => (state.inbuilt[i] = e.target.value));
-    inb.appendChild(node);
+  const normalWrap = $("#inbuiltSkills");
+  if (normalWrap) normalWrap.innerHTML = "";
+
+  // Render the special highlighted skills first into the same inbuilt container
+  (state.inbuiltSpecial || []).forEach((name, i) => {
+    const node = el("div", "skill skill--special");
+    node.innerHTML = `<i class="fa-solid fa-crown"></i><input class="edit" value="${name}" />`;
+    node.querySelector("input").addEventListener("input", (e) => (state.inbuiltSpecial[i] = e.target.value));
+    if (normalWrap) normalWrap.appendChild(node);
+  });
+
+  // Then render the normal inbuilt skills into the same container
+  (state.inbuilt || []).forEach((name, i) => {
+    const node = el("div", "skill");
+    node.innerHTML = `<i class="fa-solid fa-bolt-lightning"></i><input class="edit" value="${name}" />`;
+    node.querySelector("input").addEventListener("input", (e) => (state.inbuilt[i] = e.target.value));
+    if (normalWrap) normalWrap.appendChild(node);
   });
 
   const add = $("#additionalSkills");
@@ -436,7 +460,18 @@ $("#loadJson").addEventListener("change", (e) => {
   const reader = new FileReader();
   reader.onload = () => {
     try {
-      state = { ...structuredClone(DEFAULTS), ...JSON.parse(reader.result) };
+      const parsed = JSON.parse(reader.result) || {};
+
+      // Migrate old saved shape where all inbuilt skills lived in a single
+      // `inbuilt` array (first two were special). If the file doesn't have
+      // `inbuiltSpecial` but does have `inbuilt`, split it.
+      if (parsed.inbuilt && !parsed.inbuiltSpecial) {
+        const arr = Array.isArray(parsed.inbuilt) ? parsed.inbuilt : [];
+        parsed.inbuiltSpecial = arr.slice(0, 2);
+        parsed.inbuilt = arr.slice(2);
+      }
+
+      state = { ...structuredClone(DEFAULTS), ...parsed };
       renderAll();
     } catch {
       alert("That file isn't a valid player JSON.");
