@@ -259,7 +259,9 @@ function renderSkills() {
   (state.inbuiltSpecial || []).forEach((name, i) => {
     const node = el("div", "skill skill--special");
     node.innerHTML = `<i class="fa-solid fa-crown"></i><input class="edit" value="${name}" />`;
-    node.querySelector("input").addEventListener("input", (e) => (state.inbuiltSpecial[i] = e.target.value));
+    node
+      .querySelector("input")
+      .addEventListener("input", (e) => (state.inbuiltSpecial[i] = e.target.value));
     if (normalWrap) normalWrap.appendChild(node);
   });
 
@@ -267,7 +269,9 @@ function renderSkills() {
   (state.inbuilt || []).forEach((name, i) => {
     const node = el("div", "skill");
     node.innerHTML = `<i class="fa-solid fa-bolt-lightning"></i><input class="edit" value="${name}" />`;
-    node.querySelector("input").addEventListener("input", (e) => (state.inbuilt[i] = e.target.value));
+    node
+      .querySelector("input")
+      .addEventListener("input", (e) => (state.inbuilt[i] = e.target.value));
     if (normalWrap) normalWrap.appendChild(node);
   });
 
