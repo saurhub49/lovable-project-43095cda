@@ -8,19 +8,18 @@ const PROG_MAX = 20; // max points per progression row
 
 const DEFAULTS = {
   meta: {
-    playerName: "Denzel Dumfries",
-    ovr: "104",
-    position: "RB",
-    cardType: "Summer Transfer 17 Aug '26",
-    club: "Madrid Chamartin B",
-    playstyle: "Attacking Full-back | Basic",
+    playerName: "Kobayashi Yu",
+    ovr: "102",
+    position: "CF",
+    cardType: "Kawasaki Frontale 2017",
+    club: "Kawasaki Frontale",
+    playstyle: "Goal Poacher | Front Line Pressure",
   },
 
-  // Header meta pills
   info: [
-    { key: "nationality", label: "Nationality", icon: "fa-flag", value: "Netherlands" },
-    { key: "height", label: "Height", icon: "fa-ruler-vertical", value: "188 cm" },
-    { key: "weight", label: "Weight", icon: "fa-weight-hanging", value: "80 kg" },
+    { key: "nationality", label: "Nationality", icon: "fa-flag", value: "Japan" },
+    { key: "height", label: "Height", icon: "fa-ruler-vertical", value: "177 cm" },
+    { key: "weight", label: "Weight", icon: "fa-weight-hanging", value: "72 kg" },
     { key: "age", label: "Age", icon: "fa-cake-candles", value: "30 years" },
     { key: "foot", label: "Strong Foot", icon: "fa-shoe-prints", value: "Right" },
     { key: "wfAcc", label: "WF Accuracy", icon: "fa-crosshairs", value: "High" },
@@ -28,13 +27,13 @@ const DEFAULTS = {
   ],
 
   progression: [
-    { key: "shooting", name: "Shooting", icon: "fa-crosshairs", value: 0 },
-    { key: "passing", name: "Passing", icon: "fa-futbol", value: 4 },
-    { key: "dribbling", name: "Dribbling", icon: "fa-shoe-prints", value: 4 },
-    { key: "dexterity", name: "Dexterity", icon: "fa-right-left", value: 10 },
-    { key: "lower", name: "Lower Body Strength", icon: "fa-person-running", value: 8 },
-    { key: "aerial", name: "Aerial Strength", icon: "fa-angles-up", value: 6 },
-    { key: "defending", name: "Defending", icon: "fa-shield-halved", value: 10 },
+    { key: "shooting", name: "Shooting", icon: "fa-crosshairs", value: 11 },
+    { key: "passing", name: "Passing", icon: "fa-futbol", value: 0 },
+    { key: "dribbling", name: "Dribbling", icon: "fa-shoe-prints", value: 5 },
+    { key: "dexterity", name: "Dexterity", icon: "fa-right-left", value: 9 },
+    { key: "lower", name: "Lower Body Strength", icon: "fa-person-running", value: 10 },
+    { key: "aerial", name: "Aerial Strength", icon: "fa-angles-up", value: 0 },
+    { key: "defending", name: "Defending", icon: "fa-shield-halved", value: 0 },
     { key: "gk1", name: "GK 1", icon: "fa-hand", value: 0 },
     { key: "gk2", name: "GK 2", icon: "fa-hand-back-fist", value: 0 },
     { key: "gk3", name: "GK 3", icon: "fa-mitten", value: 0 },
@@ -42,23 +41,23 @@ const DEFAULTS = {
 
   stats: {
     ATTACKING: [
-      ["Offensive Awareness", 82, ""],
-      ["Ball Control", 79, ""],
-      ["Dribbling", 82, ""],
-      ["Tight Possession", 77, ""],
-      ["Low Pass", 85, ""],
-      ["Lofted Pass", 87, "+4"],
-      ["Finishing", 70, ""],
-      ["Heading", 83, ""],
-      ["Place Kicking", 64, ""],
-      ["Curl", 81, "+4"],
+      ["Offensive Awareness", 97, "+5"],
+      ["Ball Control", 86, "+1"],
+      ["Dribbling", 83, ""],
+      ["Tight Possession", 83, ""],
+      ["Low Pass", 71, ""],
+      ["Lofted Pass", 70, ""],
+      ["Finishing", 94, "+1"],
+      ["Heading", 71, ""],
+      ["Place Kicking", 73, ""],
+      ["Curl", 79, ""],
     ],
 
     DEFENDING: [
-      ["Defensive Awareness", 83, ""],
-      ["Tackling", 87, ""],
-      ["Aggression", 90, ""],
-      ["Defensive Engagement", 81, ""],
+      ["Defensive Awareness", 49, ""],
+      ["Tackling", 47, ""],
+      ["Aggression", 51, ""],
+      ["Defensive Engagement", 48, ""],
       ["GK Awareness", 41, ""],
       ["GK Catching", 41, ""],
       ["GK Parrying", 41, ""],
@@ -67,45 +66,51 @@ const DEFAULTS = {
     ],
 
     PHYSICAL: [
-      ["Speed", 93, "+4"],
-      ["Acceleration", 90, ""],
-      ["Kicking Power", 87, ""],
-      ["Jumping", 88, "+1"],
-      ["Physical Contact", 92, "+1"],
-      ["Balance", 80, "+1"],
-      ["Stamina", 95, "+5"],
+      ["Speed", 91, "+4"],
+      ["Acceleration", 95, "+5"],
+      ["Kicking Power", 90, ""],
+      ["Jumping", 69, ""],
+      ["Physical Contact", 72, ""],
+      ["Balance", 87, ""],
+      ["Stamina", 88, "+4"],
     ],
   },
 
   progPoints: {
-    used: "64",
-    max: "64",
+    used: "60",
+    max: "60",
   },
 
   manager: 89,
 
   boosters: {
-    b1: "Crossing",
+    b1: "Off the Ball",
     b1b: "+4",
-    b2: "Physicality",
+    b2: "Striker's Instinct",
     b2b: "+1",
   },
 
-  // First two are highlighted specially in the UI
-  inbuiltSpecial: ["Edged Crossing", "Shadow Hunt"],
+  inbuiltSpecial: ["Phenomenal Finishing"],
 
   inbuilt: [
     "Heading",
+    "Long-Range Curler",
+    "Long Range Shooting",
+    "Acrobatic Finishing",
+    "First-time Shot",
     "One-touch Pass",
-    "Through Passing",
-    "Pinpoint Crossing",
-    "Long Throw",
-    "Man Marking",
-    "Aerial Superiority",
+    "Penalty Specialist",
+    "Captaincy",
     "Fighting Spirit",
   ],
 
-  additional: ["Interception", "Sliding Tackle", "Blocker", "Track Back", "Weighted Pass"],
+  additional: [
+    "Double Touch",
+    "Outside Curler",
+    "Through Passing",
+    "Heel Trick",
+    "Chip Shot Control",
+  ],
 
   cardImage: "assets/images/player-card.png",
 };
