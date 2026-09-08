@@ -79,9 +79,16 @@
           <div class="header__id">
             <input class="edit edit--name" id="playerName" value="Jude Bellingham" />
             <div class="header__sub">
-              <input class="edit chip chip--cyan" id="playstyle" value="Hole Player" />
+              <span class="playstyle-chip playstyle-chip--attack">
+                <i class="fa-solid fa-angles-up"></i>
+                <input class="edit chip" id="attackingPlaystyle" value="Basic" aria-label="Attacking playstyle" />
+              </span>
+              <span class="playstyle-chip playstyle-chip--defense">
+                <i class="fa-solid fa-angles-down"></i>
+                <input class="edit chip" id="defensivePlaystyle" value="The Destroyer" aria-label="Defensive playstyle" />
+              </span>
               <input class="edit chip chip--gold" id="cardType" value="Big Time England" />
-              <input class="edit chip chip--pink" id="club" value="Real Madrid" />
+              <input class="edit chip chip--club" id="club" value="Real Madrid" />
             </div>
           </div>
         </div>

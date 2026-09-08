@@ -13,7 +13,8 @@ const DEFAULTS = {
     position: "CB",
     cardType: "Manchester United 98-99",
     club: "Manchester United",
-    playstyle: "Basic | The Destroyer",
+    attackingPlaystyle: "Basic",
+    defensivePlaystyle: "The Destroyer",
   },
 
   info: [
@@ -472,6 +473,12 @@ $("#loadJson").addEventListener("change", (e) => {
         const arr = Array.isArray(parsed.inbuilt) ? parsed.inbuilt : [];
         parsed.inbuiltSpecial = arr.slice(0, 2);
         parsed.inbuilt = arr.slice(2);
+      }
+
+      if (parsed.meta?.playstyle && !parsed.meta.attackingPlaystyle) {
+        const [attackingPlaystyle, ...defensiveParts] = parsed.meta.playstyle.split("|");
+        parsed.meta.attackingPlaystyle = attackingPlaystyle.trim();
+        parsed.meta.defensivePlaystyle = defensiveParts.join("|").trim();
       }
 
       state = { ...structuredClone(DEFAULTS), ...parsed };

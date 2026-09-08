@@ -401,25 +401,30 @@ kbd {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8px 14px;
+  padding: 5px 10px;
   border-radius: var(--r-md);
   border: 1px solid rgba(0, 232, 255, 0.35);
   background: rgba(0, 232, 255, 0.07);
   box-shadow: var(--glow-cyan);
 }
 .edit--ovr {
-  width: 92px;
+  width: 82px;
   text-align: center;
   font: 700 40px "Chakra Petch", sans-serif;
   color: var(--cyan);
   line-height: 1;
 }
 .edit--pos {
-  width: 82px;
+  width: 70px;
   text-align: center;
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: 0.16em;
-  color: var(--purple);
+  color: var(--cyan);
+  line-height: 0.6;
+  margin-top: -10px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .edit--name {
   width: min(100%, 460px);
@@ -451,6 +456,33 @@ kbd {
 .chip--pink {
   color: var(--pink);
   border-color: rgba(255, 46, 136, 0.42);
+}
+.playstyle-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--stroke);
+  border-radius: 999px;
+  padding: 0 5px 0 7px;
+}
+.playstyle-chip i {
+  font-size: 11px;
+}
+.playstyle-chip--attack {
+  color: var(--pink);
+  border-color: rgba(255, 46, 136, 0.52);
+}
+.playstyle-chip--defense {
+  color: var(--cyan);
+  border-color: rgba(0, 232, 255, 0.45);
+}
+.playstyle-chip .chip {
+  border: 0;
+  padding-left: 3px;
+}
+.chip--club {
+  color: var(--green);
+  border-color: rgba(70, 224, 122, 0.55);
 }
 .header__meta {
   display: grid;
