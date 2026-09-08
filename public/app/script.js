@@ -174,20 +174,15 @@ function renderProgression() {
         <button class="step" data-step="-1" aria-label="Decrease">−</button>
         <input class="edit prow__num" value="${row.value}" inputmode="numeric" />
         <button class="step" data-step="1" aria-label="Increase">+</button>
-      </span>
-      <input class="prow__slider" type="range" min="0" max="${PROG_MAX}" value="${row.value}" />`;
+      </span>`;
 
     const num = node.querySelector(".prow__num");
-    const slider = node.querySelector(".prow__slider");
 
     const apply = (v) => {
       row.value = Math.max(0, Math.min(PROG_MAX, Number(v) || 0));
       num.value = row.value;
-      slider.value = row.value;
-      slider.style.setProperty("--p", (row.value / PROG_MAX) * 100 + "%");
     };
     num.addEventListener("input", (e) => apply(e.target.value));
-    slider.addEventListener("input", (e) => apply(e.target.value));
     node
       .querySelectorAll(".step")
       .forEach((b) => b.addEventListener("click", () => apply(row.value + Number(b.dataset.step))));
